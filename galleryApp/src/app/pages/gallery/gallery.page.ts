@@ -4,7 +4,7 @@ import { ImagesService } from 'src/app/images.service';
 import { pipe, map,} from 'rxjs';
 import { ActionSheetController, ModalController } from '@ionic/angular'
 import { FullscreenViewPage } from '../fullscreen-view/fullscreen-view.page';
-import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+// import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 
 @Component({
   selector: 'app-gallery',
@@ -32,8 +32,8 @@ export class GalleryPage implements OnInit {
      private apiService:ImagesService,
      public actionSheetController: ActionSheetController,
      private modalController: ModalController,
-     private socialSharing: SocialSharing) { }
-
+     ) { }
+    //  private socialSharing: SocialSharing
   ngOnInit() {
     this.get()
   }
@@ -96,22 +96,22 @@ async openFullScreenView(imagePath:string){
 
 
 
-  selectImage(imagePath: string) {
-    const index = this.selectedImages.indexOf(imagePath);
-    if (index > -1) {
-      this.selectedImages.splice(index, 1);
-    } else {
-      this.selectedImages.push(imagePath);
-    }
-  }
+  // selectImage(imagePath: string) {
+  //   const index = this.selectedImages.indexOf(imagePath);
+  //   if (index > -1) {
+  //     this.selectedImages.splice(index, 1);
+  //   } else {
+  //     this.selectedImages.push(imagePath);
+  //   }
+  // }
 
-  deleteSelectedImages() {
-    this.filetreddata.url = this.filetreddata.url.filter((image: string) => !this.selectedImages.includes(image));
-    this.selectedImages = [];
-  }
+  // deleteSelectedImages() {
+  //   this.filetreddata.url = this.filetreddata.url.filter((image: string) => !this.selectedImages.includes(image));
+  //   this.selectedImages = [];
+  // }
 
-  shareImage() {
-    this.socialSharing.share('', '', this.filetreddata.url, '');
-  }
+  // shareImage() {
+  //   this.socialSharing.share('', '', this.filetreddata.url, '');
+  // }
 }
 
