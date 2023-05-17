@@ -1,0 +1,78 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Photo Gallery</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Photo Gallery</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-card style="display: flex; justify-content:center">
+    <ion-card-header>
+
+    </ion-card-header>
+    <ion-grid>
+      <ion-card-content>
+        <ion-grid>
+          <div class="row">
+            <div class="col-4">
+
+            </div>
+            <div class="col-4">
+              <ion-grid>
+                <div *ngFor="let images of getImagesforCurrentPage()">
+                  <ion-card style="width: 300px;height:300px; display:block;justify-content:center ">
+                    <ion-card-title>{{images.albumId}}</ion-card-title>
+                    <ion-card-header>
+                      <div>
+                        <h3>{{images.title}}</h3>
+                      </div>
+                    </ion-card-header>
+
+                    <div>
+                      <ion-card-content style="width:200px;height:200px">
+                        <ion-thumbnail slot="start">
+                          <ion-img [src]="images.url" alt="Image" (click)="openFullScreenView(images.url)"
+                            style="width: 200px;height:200px;position:fixed"></ion-img>
+                        </ion-thumbnail>
+                      </ion-card-content>
+                    </div>
+                  </ion-card>
+                </div>
+
+
+              </ion-grid>
+            </div>
+            <div class="col-4"></div>
+            <div class="col-4"></div>
+          </div>
+        </ion-grid>
+
+
+      </ion-card-content>
+
+
+    </ion-grid>
+  </ion-card>
+
+  <ion-footer>
+    <ion-footer>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="previousPage()" [disabled]="currentPage === 1">
+            Previous
+          </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="end">
+          <ion-button (click)="nextPage()" [disabled]="currentPage === getTotalPages()">
+            Next
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-footer>
+  </ion-footer>
+</ion-content>

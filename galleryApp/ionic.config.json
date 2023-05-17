@@ -1,0 +1,8 @@
+{
+  "name": "galleryApp",
+  "integrations": {
+    "cordova": {},
+    "capacitor": {}
+  },
+  "type": "angular"
+}
